@@ -1,5 +1,6 @@
 import { ThunkDispatch } from "@reduxjs/toolkit";
 import CommitListItem from "components/CommitListItem/CommitListItem";
+import PageLoader from "components/PageLoader/PageLoader";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -28,7 +29,7 @@ const CommitList = () => {
   }, [dispatch, owner, repo]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <PageLoader message=" Loading commits..." />;
   }
 
   if (error) {
