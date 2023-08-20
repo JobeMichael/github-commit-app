@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { RootState } from "store";
 import { fetchCommits } from "store/commitsSlice";
+import * as S from "./CommitList.styles";
 
 const CommitList = () => {
   console.count("CommitList");
@@ -42,16 +43,22 @@ const CommitList = () => {
 
   return (
     <>
-      <h1>Commits Overview</h1>
-
-      {commits.map((commit: any) => (
-        <CommitListItem
-          commit={commit}
-          key={commit.sha}
-          repoName={repo}
-          repoOwner={owner}
-        />
-      ))}
+      <S.Title>
+        Commits for{" "}
+        <b>
+          {owner}/{repo}
+        </b>
+      </S.Title>
+      <S.Wrapper>
+        {commits.map((commit: any) => (
+          <CommitListItem
+            commit={commit}
+            key={commit.sha}
+            repoName={repo}
+            repoOwner={owner}
+          />
+        ))}
+      </S.Wrapper>
     </>
   );
 };
