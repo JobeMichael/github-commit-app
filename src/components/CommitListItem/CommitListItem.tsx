@@ -9,7 +9,7 @@ interface IProps {
   repoOwner: string;
 }
 
-const IssueItem: React.FC<IProps> = ({ commit, repoName, repoOwner }) => {
+const CommitListItem: React.FC<IProps> = ({ commit, repoName, repoOwner }) => {
   const {
     author: { login, avatar_url },
     commit: {
@@ -34,4 +34,4 @@ const IssueItem: React.FC<IProps> = ({ commit, repoName, repoOwner }) => {
   );
 };
 
-export default IssueItem;
+export default CommitListItem;

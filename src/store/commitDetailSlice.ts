@@ -37,7 +37,7 @@ export const fetchCommitDetail = createAsyncThunk(
   }
 );
 
-const commitsSlice = createSlice({
+const commitDetailSlice = createSlice({
   name: "commitDetail",
   initialState,
   reducers: {},
@@ -58,4 +58,4 @@ const commitsSlice = createSlice({
   },
 });
 
-export default commitsSlice.reducer;
+export default commitDetailSlice.reducer;

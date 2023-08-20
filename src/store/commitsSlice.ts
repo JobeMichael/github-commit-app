@@ -1,8 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getCommitsUrl } from "config/apiUrls";
+import { ICommit } from "interfaces";
 
-const initialState: any = {
-  commits: [],
+type ICommitState = {
+  data: Array<ICommit>;
+  loading: boolean;
+  error: string | null;
+};
+
+const initialState: ICommitState = {
+  data: [],
   loading: false,
   error: null,
 };
@@ -30,7 +37,7 @@ const commitsSlice = createSlice({
       })
       .addCase(fetchCommits.fulfilled, (state, action) => {
         state.loading = false;
-        state.commits = action.payload;
+        state.data = action.payload;
       })
       .addCase(fetchCommits.rejected, (state, action) => {
         state.loading = false;

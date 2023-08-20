@@ -10,36 +10,19 @@ import { fetchCommitDetail } from "store/commitDetailSlice";
 import NotFoundView from "../NotFoundView/NotFoundView";
 import * as S from "./CommitDetailView.styles";
 
-interface ICommitDetail {
-  commit: {
-    author: { name: string; date: string };
-    message: string;
-  };
-  stats: { total: number; additions: number; deletions: number };
-  files: Array<{
-    filename: string;
-    status: string;
-    additions: number;
-    deletions: number;
-  }>;
-}
-
 const CommitDetailView = () => {
-  console.count("CommitList");
   const { owner, repo, commitId } = useParams();
 
   const dispatch = useDispatch<ThunkDispatch<RootState, undefined, any>>();
-
   const { data, loading, error } = useSelector(
     (state: RootState) => state.commitDetail
   );
   console.log(
-    "🚀 ~ file: CommitDetailView.tsx:34 ~ CommitDetailView ~ data:",
-    error
+    "🚀 ~ file: CommitDetailView.tsx:18 ~ CommitDetailView ~ data:",
+    data
   );
 
   useEffect(() => {
-    console.count("CommitList useEffect");
     if (!owner || !repo || !commitId) {
       return;
     }
@@ -57,8 +40,6 @@ const CommitDetailView = () => {
   if (!data) {
     return <div>No commits</div>;
   }
-
-  console.log(data.commit.author.date);
 
   return (
     <>
