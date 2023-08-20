@@ -11,6 +11,9 @@ export const fetchCommits = createAsyncThunk(
   "commits",
   async ({ owner, repo }: { owner: string; repo: string }) => {
     const response = await fetch(getCommitsUrl(owner, repo));
+    if (response.status !== 200) {
+      throw new Error("Failed to fetch commits");
+    }
     return response.json();
   }
 );

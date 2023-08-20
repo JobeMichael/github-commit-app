@@ -25,8 +25,15 @@ export const fetchCommitDetail = createAsyncThunk(
     repo: string;
     commitId: string;
   }) => {
-    const response = await fetch(getCommitDetailsUrl(owner, repo, commitId));
-    return response.json();
+    try {
+      const response = await fetch(getCommitDetailsUrl(owner, repo, commitId));
+      if (response.status !== 200) {
+        throw new Error("Failed to fetch commit detail");
+      }
+      return response.json();
+    } catch (error) {
+      throw new Error("Failed to fetch commit detail");
+    }
   }
 );
 

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { RootState } from "store";
 import { fetchCommitDetail } from "store/commitDetailSlice";
+import NotFoundView from "../NotFoundView/NotFoundView";
 import * as S from "./CommitDetailView.styles";
 
 interface ICommitDetail {
@@ -32,6 +33,10 @@ const CommitDetailView = () => {
   const { data, loading, error } = useSelector(
     (state: RootState) => state.commitDetail
   );
+  console.log(
+    "🚀 ~ file: CommitDetailView.tsx:34 ~ CommitDetailView ~ data:",
+    error
+  );
 
   useEffect(() => {
     console.count("CommitList useEffect");
@@ -46,7 +51,7 @@ const CommitDetailView = () => {
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <NotFoundView />;
   }
 
   if (!data) {

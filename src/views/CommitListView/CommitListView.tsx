@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { RootState } from "store";
 import { fetchCommits } from "store/commitsSlice";
+import NotFoundView from "views/NotFoundView/NotFoundView";
 import * as S from "./CommitListView.styles";
 
 const CommitList = () => {
@@ -34,11 +35,15 @@ const CommitList = () => {
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return (
+      <>
+        <NotFoundView />
+      </>
+    );
   }
 
   if (!commits) {
-    return <div>No commits</div>;
+    return null;
   }
 
   return (
