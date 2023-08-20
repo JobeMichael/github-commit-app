@@ -1,19 +1,17 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div``;
-
 export const MessageDetail = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
-  background-color: #f8f8f8;
+  background-color: ${(props) => props.theme.colors.background};
   border-radius: 6px;
-  border: 1px solid #e1e4e8;
+  border: 1px solid ${(props) => props.theme.colors.border};
 `;
 
 export const CommitAuthorWrapper = styled.div`
   padding: 8px 15px;
-  border-top: 1px solid #e1e4e8;
+  border-top: 1px solid ${(props) => props.theme.colors.border};
 `;
 
 export const Message = styled.div`

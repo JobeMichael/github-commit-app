@@ -19,9 +19,8 @@ const IssueItem: React.FC<IProps> = ({ commit, repoName, repoOwner }) => {
   } = commit;
 
   const titleRegex = /^.*$/m;
-
   const match = message.match(titleRegex);
-  const title = match ? match[0] : "No title found";
+  const title = match ? match[0] : "";
 
   const url = `/${repoOwner}/${repoName}/${commit.sha}`;
 

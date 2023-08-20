@@ -20,14 +20,13 @@ const CommitDetail: React.FC<IProps> = ({ data }) => {
   } = data;
 
   const lines = message.split("\n");
-
   const title = lines[0];
   const description = lines.slice(2).join("\n").trim();
 
   const numChangedFiles = files.length;
 
   return (
-    <S.Wrapper>
+    <>
       <S.MessageDetail>
         <S.Message>
           <h4>{title}</h4>
@@ -44,7 +43,7 @@ const CommitDetail: React.FC<IProps> = ({ data }) => {
         deletions={deletions}
       />
       <CommitFileList files={files} />
-    </S.Wrapper>
+    </>
   );
 };
 
