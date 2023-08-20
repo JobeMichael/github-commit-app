@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-  margin: 0 auto;
   max-width: 960px;
-  padding: 1rem;
-  width: 100%;
+  margin: 0 auto;
+  width: 95%;
   min-height: calc(100vh - 115px);
+  padding: 0;
+  margin-top: 30px;
 `;

@@ -1,4 +1,6 @@
 import CommitAuthor from "components/CommitAuthor/CommitAuthor";
+import CommitFileList from "components/CommitFileList/CommitFileList";
+import CommitSummary from "components/CommitSummary/CommitSummary";
 import { ICommit } from "interfaces";
 import * as S from "./CommitDetail.styles";
 
@@ -24,16 +26,8 @@ const CommitDetail: React.FC<IProps> = ({ data }) => {
 
   const numChangedFiles = files.length;
 
-  const changeSummary = `Showing ${total} changed file${
-    numChangedFiles > 1 ? "s" : ""
-  } with ${additions} addition${
-    additions > 1 ? "s" : ""
-  } and ${deletions} deletion${deletions > 1 ? "s" : ""}.`;
-
   return (
     <S.Wrapper>
-      {" "}
-      <h2>Commit Detail</h2>
       <S.MessageDetail>
         <S.Message>
           <h4>{title}</h4>
@@ -43,18 +37,13 @@ const CommitDetail: React.FC<IProps> = ({ data }) => {
           <CommitAuthor login={login} avatarUrl={avatar_url} date={date} />
         </S.CommitAuthorWrapper>
       </S.MessageDetail>
-      <p>{changeSummary}</p>
-      <h3>Changed Files:</h3>
-      <ul>
-        {data.files.map((file, index) => (
-          <li key={index}>
-            <p>Filename: {file.filename}</p>
-            <p>Status: {file.status}</p>
-            <p>Additions: {file.additions}</p>
-            <p>Deletions: {file.deletions}</p>
-          </li>
-        ))}
-      </ul>
+      <CommitSummary
+        total={total}
+        numChangedFiles={numChangedFiles}
+        additions={additions}
+        deletions={deletions}
+      />
+      <CommitFileList files={files} />
     </S.Wrapper>
   );
 };

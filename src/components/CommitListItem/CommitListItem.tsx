@@ -1,7 +1,7 @@
+import CommitAuthor from "components/CommitAuthor/CommitAuthor";
 import { ICommit } from "interfaces";
 import React from "react";
 import * as S from "./CommitListItem.styles";
-
 
 interface IProps {
   commit: ICommit;
@@ -18,8 +18,6 @@ const IssueItem: React.FC<IProps> = ({ commit, repoName, repoOwner }) => {
     },
   } = commit;
 
-
-
   const titleRegex = /^.*$/m;
 
   const match = message.match(titleRegex);
@@ -31,7 +29,7 @@ const IssueItem: React.FC<IProps> = ({ commit, repoName, repoOwner }) => {
     <S.Wrapper to={url}>
       <S.Title>{title}</S.Title>
       <S.Footer>
-
+        <CommitAuthor login={login} avatarUrl={avatar_url} date={date} />
       </S.Footer>
     </S.Wrapper>
   );

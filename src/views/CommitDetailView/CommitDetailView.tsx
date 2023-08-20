@@ -1,11 +1,13 @@
 import { ThunkDispatch } from "@reduxjs/toolkit";
+import Button from "components/Button/Button";
 import CommitDetail from "components/CommitDetail/CommitDetail";
 import PageLoader from "components/PageLoader/PageLoader";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { RootState } from "store";
 import { fetchCommitDetail } from "store/commitDetailSlice";
+import * as S from "./CommitDetailView.styles";
 
 interface ICommitDetail {
   commit: {
@@ -55,6 +57,12 @@ const CommitDetailView = () => {
 
   return (
     <>
+      <S.WrapperHeader>
+        <h2>Commit</h2>
+        <Link to={`/${owner}/${repo}`}>
+          <Button primary>Back to commits</Button>
+        </Link>
+      </S.WrapperHeader>
       <CommitDetail data={data} />
     </>
   );

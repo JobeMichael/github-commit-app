@@ -9,7 +9,7 @@ export interface ICommit {
   committer: CommitAuthor;
   parents: Parent[];
   stats: Stats;
-  files: File[];
+  files: IFile[];
 }
 
 export interface CommitAuthor {
@@ -61,7 +61,7 @@ export interface Verification {
   payload: null;
 }
 
-export interface File {
+export interface IFile {
   sha: string;
   filename: string;
   status: string;

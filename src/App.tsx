@@ -3,7 +3,6 @@ import theme from "global/theme";
 import { Provider } from "react-redux";
 import store from "store";
 import { ThemeProvider } from "styled-components";
-import "./App.css";
 import AppRoutes from "./routes";
 
 function App() {
