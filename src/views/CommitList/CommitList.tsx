@@ -1,13 +1,14 @@
 import { ThunkDispatch } from "@reduxjs/toolkit";
+import CommitListItem from "components/CommitListItem/CommitListItem";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { RootState } from "store";
 import { fetchCommits } from "store/commitsSlice";
 
 const CommitList = () => {
   console.count("CommitList");
-  const { owner, repo } = useParams<{
+  const { owner = "", repo = "" } = useParams<{
     owner: string;
     repo: string;
   }>();
@@ -41,16 +42,15 @@ const CommitList = () => {
   return (
     <>
       <h1>Commits Overview</h1>
-      <ul>
-        {commits.map((commit: any) => (
-          <li key={commit.sha}>
-            <Link to={`/${owner}/${repo}/${commit.sha}`}>
-              {commit.commit.message} by {commit.commit.author.name} on{" "}
-              {commit.commit.author.date}
-            </Link>
-          </li>
-        ))}
-      </ul>
+
+      {commits.map((commit: any) => (
+        <CommitListItem
+          commit={commit}
+          key={commit.sha}
+          repoName={repo}
+          repoOwner={owner}
+        />
+      ))}
     </>
   );
 };
