@@ -5,15 +5,9 @@ import { useParams } from "react-router-dom";
 import { RootState } from "store";
 import { fetchCommitDetail } from "store/commitDetailSlice";
 
-interface CommitDetailParams extends Record<string, string | undefined> {
-  owner: string;
-  repo: string;
-  commitId: string;
-}
-
 const CommitDetail = () => {
   console.count("CommitList");
-  const { owner, repo, commitId } = useParams<CommitDetailParams>();
+  const { owner, repo, commitId } = useParams();
 
   const dispatch = useDispatch<ThunkDispatch<RootState, undefined, any>>();
 

@@ -2,6 +2,7 @@ import { ThunkDispatch } from "@reduxjs/toolkit";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { RootState } from "store";
 import { fetchCommits } from "store/commitsSlice";
 
 const CommitList = () => {
@@ -14,7 +15,7 @@ const CommitList = () => {
   const dispatch = useDispatch<ThunkDispatch<{}, undefined, any>>();
 
   const { commits, loading, error } = useSelector(
-    (state: any) => state.commits
+    (state: RootState) => state.commits
   );
 
   useEffect(() => {
