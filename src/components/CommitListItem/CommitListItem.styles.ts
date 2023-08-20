@@ -42,30 +42,3 @@ export const Footer = styled.div`
   margin-top: 8px;
 `;
 
-export const FooterItem = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: 0.75rem;
-  color: #586069;
-  margin-right: 1rem;
-
-  span {
-    display: flex;
-    align-items: center;
-  }
-`;
-
-export const AvatarWrapper = styled.div`
-  margin-right: 0.5rem;
-  border-radius: 50%;
-  background-color: rgba(207, 211, 214, 0.5);
-  width: 1.5rem;
-  height: 1.5rem;
-  border: 2px solid rgba(207, 211, 214, 0.5);
-
-  img {
-    border-radius: 50%;
-    max-width: 100%;
-    height: auto;
-  }
-`;

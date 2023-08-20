@@ -5,4 +5,5 @@ export const Main = styled.main`
   max-width: 960px;
   padding: 1rem;
   width: 100%;
+  min-height: calc(100vh - 115px);
 `;

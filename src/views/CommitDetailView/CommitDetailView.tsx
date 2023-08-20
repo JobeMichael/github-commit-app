@@ -1,4 +1,5 @@
 import { ThunkDispatch } from "@reduxjs/toolkit";
+import CommitDetail from "components/CommitDetail/CommitDetail";
 import PageLoader from "components/PageLoader/PageLoader";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,7 +21,7 @@ interface ICommitDetail {
   }>;
 }
 
-const CommitDetail = () => {
+const CommitDetailView = () => {
   console.count("CommitList");
   const { owner, repo, commitId } = useParams();
 
@@ -54,26 +55,9 @@ const CommitDetail = () => {
 
   return (
     <>
-      <h2>Commit Detail</h2>
-      <p>Commit Message: {data.commit.message}</p>
-      <p>Author: {data.commit.author.name}</p>
-      {/* <p>Commit Date: {data.commit.author.date.toDateString()}</p> */}
-      <p>Total Additions: {data.stats.additions}</p>
-      <p>Total Deletions: {data.stats.deletions}</p>
-      <p>Total Files Changed: {data.stats.total}</p>
-      <h3>Changed Files:</h3>
-      <ul>
-        {data.files.map((file, index) => (
-          <li key={index}>
-            <p>Filename: {file.filename}</p>
-            <p>Status: {file.status}</p>
-            <p>Additions: {file.additions}</p>
-            <p>Deletions: {file.deletions}</p>
-          </li>
-        ))}
-      </ul>
+      <CommitDetail data={data} />
     </>
   );
 };
 
-export default CommitDetail;
+export default CommitDetailView;

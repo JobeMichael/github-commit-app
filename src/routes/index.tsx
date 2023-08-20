@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CommitDetail from "views/CommitDetail/CommitDetail";
-import CommitList from "views/CommitList/CommitList";
+import CommitDetail from "views/CommitDetailView/CommitDetailView";
+import CommitList from "views/CommitListView/CommitListView";
 
 export const AppRoutes = () => {
   return (

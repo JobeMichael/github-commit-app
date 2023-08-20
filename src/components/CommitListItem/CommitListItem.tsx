@@ -1,7 +1,7 @@
 import { ICommit } from "interfaces";
 import React from "react";
 import * as S from "./CommitListItem.styles";
-const { formatDistanceToNow, parseISO } = require("date-fns");
+
 
 interface IProps {
   commit: ICommit;
@@ -18,8 +18,7 @@ const IssueItem: React.FC<IProps> = ({ commit, repoName, repoOwner }) => {
     },
   } = commit;
 
-  const parsedDate = parseISO(date);
-  const formattedDate = formatDistanceToNow(parsedDate, { addSuffix: true });
+
 
   const titleRegex = /^.*$/m;
 
@@ -32,14 +31,7 @@ const IssueItem: React.FC<IProps> = ({ commit, repoName, repoOwner }) => {
     <S.Wrapper to={url}>
       <S.Title>{title}</S.Title>
       <S.Footer>
-        <S.FooterItem>
-          <S.AvatarWrapper>
-            <img src={avatar_url} alt={login} />
-          </S.AvatarWrapper>
-          <span>
-            <b>{login}</b> {`committed ${formattedDate}`}
-          </span>
-        </S.FooterItem>
+
       </S.Footer>
     </S.Wrapper>
   );

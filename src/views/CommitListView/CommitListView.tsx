@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { RootState } from "store";
 import { fetchCommits } from "store/commitsSlice";
-import * as S from "./CommitList.styles";
+import * as S from "./CommitListView.styles";
 
 const CommitList = () => {
   console.count("CommitList");
