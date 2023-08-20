@@ -7,7 +7,9 @@ export const Footer = styled.footer`
   height: 35px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 15px;
   font-size: 0.8rem;
+  color: ${(props) => props.theme.colors.textWhite};
+  font-weight: 600;
 `;
