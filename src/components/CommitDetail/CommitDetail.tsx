@@ -2,6 +2,7 @@ import CommitAuthor from "components/CommitAuthor/CommitAuthor";
 import CommitFileList from "components/CommitFileList/CommitFileList";
 import CommitSummary from "components/CommitSummary/CommitSummary";
 import { ICommit } from "interfaces";
+import ReactMarkdown from "react-markdown";
 import * as S from "./CommitDetail.styles";
 
 interface IProps {
@@ -30,7 +31,7 @@ const CommitDetail: React.FC<IProps> = ({ data }) => {
       <S.MessageDetail>
         <S.Message>
           <h4>{title}</h4>
-          <p>{description}</p>
+          <ReactMarkdown>{description}</ReactMarkdown>
         </S.Message>
         <S.CommitAuthorWrapper>
           <CommitAuthor login={login} avatarUrl={avatar_url} date={date} />

@@ -17,10 +17,6 @@ const CommitDetailView = () => {
   const { data, loading, error } = useSelector(
     (state: RootState) => state.commitDetail
   );
-  console.log(
-    "🚀 ~ file: CommitDetailView.tsx:18 ~ CommitDetailView ~ data:",
-    data
-  );
 
   useEffect(() => {
     if (!owner || !repo || !commitId) {
